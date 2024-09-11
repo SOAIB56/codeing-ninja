@@ -1,0 +1,52 @@
+problem link: https://www.naukri.com/code360/problems/queue-using-array-or-singly-linked-list_2099908
+
+solution:
+
+#include <bits/stdc++.h> 
+class Queue 
+{
+
+public:
+vector<int>v;
+int sz=0;
+
+    Queue() 
+    {
+        // sz=0;
+        // Implement the Constructor
+    }
+
+    /*----------------- Public Functions of Queue -----------------*/
+
+    bool isEmpty() {
+       if(sz== 0) return true; 
+       else return false;
+    }
+
+    void enqueue(int data) 
+    {
+        sz++;
+        v.push_back(data);
+        // return;;
+    }
+
+    int dequeue() 
+    {
+        if(isEmpty()) return -1;
+        else 
+        {
+            int del=v.front();
+            v.erase(v.begin());
+             sz--;
+            return del;
+            
+        } 
+       
+       
+    }
+
+    int front() {
+      if(isEmpty()) return -1;
+        else  return v.front();
+    }
+};
