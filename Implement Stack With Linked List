@@ -1,0 +1,82 @@
+problem link: https://www.naukri.com/code360/problems/implement-stack-with-linked-list_630475?leftPanelTabValue=SUBMISSION
+
+solution:
+/****************************************************************
+
+    Following is the class structure of the Node class:
+
+        class Node
+        {
+        public:
+            int data;
+            Node *next;
+            Node()
+            {
+                this->data = 0;
+                next = NULL;
+            }
+            Node(int data)
+            {
+                this->data = data;
+                this->next = NULL;
+            }
+            Node(int data, Node* next)
+            {
+                this->data = data;
+                this->next = next;
+            }
+        };
+
+
+*****************************************************************/
+
+class Stack
+{
+    //Write your code here
+     Node * head=NULL;
+     int siz=0;
+
+public:
+    Stack()
+    {
+        //Write your code here
+    }
+
+    int getSize()
+    {
+        return siz;
+    }
+
+    bool isEmpty()
+    {
+        if(siz==0) return true;
+        else return false;
+    }
+
+    void push(int data)
+    {
+       siz++;
+        Node *newnode= new  Node (data);
+       
+        
+            newnode->next= head;
+            head=newnode;
+        
+    }
+
+    void pop()
+    {
+      
+       if(isEmpty()) return;
+        Node *del= head;
+        head= head->next;
+        delete del;
+         siz--;
+    }
+
+    int getTop()
+    {
+        if(isEmpty()) return  -1;
+        else return  head->data;
+    }
+};
