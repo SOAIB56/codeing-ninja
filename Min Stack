@@ -1,0 +1,90 @@
+proble:https://www.naukri.com/code360/problems/min-stack_3843991?leftPanelTabValue=PROBLEM
+
+
+solution
+
+
+#include <bits/stdc++.h> 
+// Implement class for minStack.
+class minStack
+{
+	stack<int> st;
+	stack<int> mst;
+	int sz=0;
+	public:
+		
+		// Constructor
+		minStack() 
+		{ 
+			// Write your code here.
+		}
+		
+		// Function to add another element equal to num at the top of stack.
+		void push(int num)
+		{
+			if(mst.empty())
+			{
+				mst.push(num);
+				st.push(num);
+			}
+			else if(mst.top()>= num)
+			{
+				mst.push(num);
+				st.push(num);
+			}
+			else
+			{
+				st.push(num);
+
+			}
+			
+			sz++;
+		}
+		
+		// Function to remove the top element of the stack.
+		int pop()
+		{
+			if(!st.empty())
+			{
+				if(mst.top() == st.top())
+				{
+					int x=st.top();
+				 	st.pop();
+					 mst.pop();
+					return x;
+				}
+				else
+				{
+					int x=st.top();
+				 	st.pop();
+					return x;
+				}
+				// sz--;
+				
+			}
+			else return -1;
+			
+		}
+		
+		// Function to return the top element of stack if it is present. Otherwise return -1.
+		int top()
+		{
+			if(!st.empty())
+			{
+				return st.top();
+			}
+			else return -1;
+		
+		}
+		
+		// Function to return minimum element of stack if it is present. Otherwise return -1.
+		int getMin()
+		{
+			if(!mst.empty())
+			{
+				return mst.top();
+
+			}
+				else return -1;
+		}
+};
