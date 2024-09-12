@@ -1,0 +1,26 @@
+problem:https://www.naukri.com/code360/problems/kevin-s-stack-problem_1169465?leftPanelTabValue=PROBLEM
+
+
+solution
+
+#include <bits/stdc++.h> 
+string kevinStackProblem(string &s)
+{
+	// Write your code here.
+	stack<char>st;
+	int x=s.length();
+        for (int i = 0; i < x; i++) 
+		{
+          char c = s[i];
+          st.push(c);
+        }
+		string rev={};
+		while(!st.empty())
+		{
+			char c=st.top();
+			st.pop();
+			rev.push_back(c);
+			
+		}
+		return rev;
+}
