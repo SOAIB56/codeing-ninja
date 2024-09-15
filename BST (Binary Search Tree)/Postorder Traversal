@@ -1,0 +1,36 @@
+problem link: https://www.naukri.com/code360/problems/name_2035933
+
+solution
+
+/*
+    Following is Binary Tree Node structure:
+    class TreeNode
+    {
+    public:
+        int data;
+        TreeNode *left, *right;
+        TreeNode() : data(0), left(NULL), right(NULL) {}
+        TreeNode(int x) : data(x), left(NULL), right(NULL) {}
+        TreeNode(int x, TreeNode *left, TreeNode *right) : data(x), left(left), right(right) {}
+    };
+*/
+void postorderTraversal(TreeNode *root, vector<int>&v)
+{
+    if(root == NULL)
+    {
+        return ;
+    }
+    postorderTraversal(root->left, v);
+    postorderTraversal(root->right, v);
+    v.push_back(root->data);
+}
+vector<int> postorderTraversal(TreeNode *root)
+{
+    // Write your code here.
+    vector<int> v;
+     postorderTraversal(root, v);
+     return v;
+    
+    
+
+}
