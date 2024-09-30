@@ -1,0 +1,21 @@
+problem link: https://www.naukri.com/code360/problems/reverse-stack-using-recursion_631875?leftPanelTabValue=PROBLEM
+
+solution:
+
+void solve(stack<int> &s)
+{
+ if(s.empty()) return;
+    int x= s.top();
+    s.pop();
+   solve(s);
+    s.push(x);
+}
+void reverseStack(stack<int> &st) 
+{
+   solve (st);
+    while(!st.empty())
+    {
+        cout<<st.top()<<" ";
+        st.pop();
+    }
+}
