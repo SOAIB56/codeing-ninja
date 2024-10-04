@@ -1,0 +1,39 @@
+problem link: https://www.naukri.com/code360/problems/second-largest-element-in-the-array_873375?leftPanelTab=0&leftPanelTabValue=PROBLEM
+
+solution
+#include <bits/stdc++.h> 
+int findSecondLargest(int n, vector<int> &arr)
+{
+   
+    set<int, greater<int>> s;
+    for(int i=0; i<arr.size(); i++)
+    {
+        s.insert(arr[i]);
+    }
+    //  for(auto it= s.begin(); it !=s.end(); it++)
+    //     {
+    //         cout<<*it<<" ";
+    //         // cnt++;
+    //         // if(cnt==2)
+    //         // {
+    //         //     res= *it;
+    //         // }
+    //     }
+    //     cout<<endl;
+     int res=0;
+    if(s.size()==1) res= -1;
+    else
+    {
+        int cnt=0;
+       
+        for(auto it= s.begin(); it !=s.end(); it++)
+        {
+            cnt++;
+            if(cnt==2)
+            {
+                res= *it;
+            }
+        }
+    }
+    return res;
+}
